@@ -8,6 +8,7 @@ import Products from './Pages/Products';
 import Categories from './Pages/Categories';
 import Collections from './Pages/Collections';
 import Login from './Pages/Login';
+import ProductsIndex from './components/Products/ProductsIndex';
 
 function App() {
   return (
@@ -16,8 +17,8 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="shop" element={<Shop />} />
-          <Route path="products" element={<Products />} />
+          <Route path="shop" element={<Products />} />
+          <Route path="products" element={<ProductsIndex />} />
           <Route path="categories" element={<Categories />} />
           <Route path="collections" element={<Collections />} />
           <Route path="login" element={<Login />} />
