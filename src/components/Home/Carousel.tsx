@@ -17,6 +17,7 @@ export default function Carousel() {
                 pagination={{
                     dynamicBullets: true,
                 }}
+                loop={true}
                 modules={[Pagination]}
                 className="mySwiper"
             >
@@ -25,14 +26,14 @@ export default function Carousel() {
                 </SwiperSlide>
                 <SwiperSlide>
                     <img src={require("../../Assets/images/istockphoto-1175355990-612x612.jpg")} alt="" className="h-[70vh]" style={{ height: "70vh" }} />
-                </SwiperSlide> 
+                </SwiperSlide>
                 <SwiperSlide>
                     <img src={require("../../Assets/images/istockphoto-1175355990-612x612.jpg")} alt="" className="h-[70vh]" style={{ height: "70vh" }} />
                 </SwiperSlide>
-                 <SwiperSlide>
+                <SwiperSlide>
                     <img src={require("../../Assets/images/istockphoto-1175355990-612x612.jpg")} alt="" className="h-[70vh]" style={{ height: "70vh" }} />
                 </SwiperSlide>
-                 <SwiperSlide>
+                <SwiperSlide>
                     <img src={require("../../Assets/images/istockphoto-1175355990-612x612.jpg")} alt="" className="h-[70vh]" style={{ height: "70vh" }} />
                 </SwiperSlide>
 

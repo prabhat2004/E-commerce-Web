@@ -2,6 +2,7 @@ import react from "react"
 import { useState } from 'react'
 import { StarIcon } from '@heroicons/react/20/solid'
 import { RadioGroup } from '@headlessui/react'
+import { useNavigate } from 'react-router-dom';
 
 const product = {
     name: 'Basic Tee 6-Pack',
@@ -64,7 +65,7 @@ function classNames(...classes: any) {
 const ProductView = () => {
     const [selectedColor, setSelectedColor] = useState(product.colors[0])
     const [selectedSize, setSelectedSize] = useState(product.sizes[2])
-
+    const navigate = useNavigate()
     return (
         <div className="bg-white">
             <div className="pt-6">
@@ -95,6 +96,11 @@ const ProductView = () => {
                                 {product.name}
                             </a>
                         </li>
+                        <div className="flex absolute right-20">
+                            <button className="border rounded-md text-indigo-700 border-indigo-600 px-2 " onClick={() => {
+                                navigate(-1)
+                            }}>Back</button>
+                        </div>
                     </ol>
                 </nav>
 

@@ -2,11 +2,13 @@ import { configureStore } from '@reduxjs/toolkit'
 // Or from '@reduxjs/toolkit/query/react'
 import { setupListeners } from '@reduxjs/toolkit/query'
 import { TestApi } from './Services/rtk/services/test'
+import ProductReducer from "../src/features/ProductSlice"
 
 export const store = configureStore({
   reducer: {
     // Add the generated reducer as a specific top-level slice
     [TestApi.reducerPath]: TestApi.reducer,
+    ProductsReducer: ProductReducer,
   },
   // Adding the api middleware enables caching, invalidation, polling,
   // and other useful features of `rtk-query`.
