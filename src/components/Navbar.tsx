@@ -1,11 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FiSearch } from 'react-icons/fi';
 import DropDownMenu from './DropDownMenu';
 import { Link } from "react-router-dom";
 import Cart from './Cart';
+import { useGetAllCartQuery } from '../Services/rtk/services/test';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false)
+    const { data: CartItems } = useGetAllCartQuery("");
+    const [CartData, setCartData] = useState<any>([])
+    useEffect(() => {
+        setCartData(CartItems)
+    }, [CartItems])
     return (
         <>
             <nav className="bg-white shadow">
@@ -34,7 +40,7 @@ const Navbar = () => {
                         <div className="flex flex-col md:flex-row md:mx-6 cursor-pointer">
                             <FiSearch />
                         </div>
-                        {<Cart isOpen={isOpen} setOpen={setIsOpen} />}
+                        {<Cart isOpen={isOpen} setOpen={setIsOpen} data={CartData} />}
                         <div className="flex justify-center md:block">
                             <p className="relative text-gray-700 hover:text-gray-600 cursor-pointer" onClick={() => {
                                 setIsOpen(!isOpen)
