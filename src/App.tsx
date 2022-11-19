@@ -9,6 +9,7 @@ import Login from './Pages/Login';
 import ProductsIndex from './components/Products/ProductsIndex';
 import Collections from './components/Collections/Collections';
 import ProductView from './components/Home/ProductView';
+import ProtectedRoute from './components/ProtectedRoute';
 
 function App() {
   return (
@@ -16,7 +17,11 @@ function App() {
       <div>
         <Navbar />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={
+            <ProtectedRoute>
+              <Home />
+            </ProtectedRoute>
+          } />
           <Route path="shop" element={<Products />} />
           <Route path="products" element={<ProductsIndex />} />
           <Route path="categories" element={<Categories />} />
