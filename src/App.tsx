@@ -10,6 +10,7 @@ import ProductsIndex from './components/Products/ProductsIndex';
 import Collections from './components/Collections/Collections';
 import ProductView from './components/Home/ProductView';
 import ProtectedRoute from './components/ProtectedRoute';
+import Register from './Pages/Register';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route path="collections" element={<Collections />} />
           <Route path={`view/:id`} element={<ProductView />} />
           <Route path="login" element={<Login />} />
+          <Route path="register" element={<Register />} />
         </Routes>
       </div>
     </>
