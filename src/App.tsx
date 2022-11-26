@@ -1,25 +1,24 @@
-import React from 'react';
+import React, { Suspense } from 'react';
+import { Routes, Route } from "react-router-dom";
 import './App.css';
 import Navbar from './components/Navbar';
-import { Routes, Route } from "react-router-dom";
-import Home from './Pages/Home';
-import Products from './Pages/Products';
-import Categories from './Pages/Categories';
-import Login from './Pages/Login';
-import ProductsIndex from './components/Products/ProductsIndex';
-import Collections from './components/Collections/Collections';
-import ProductView from './components/Home/ProductView';
+import Loading from './components/Loading';
 import ProtectedRoute from './components/ProtectedRoute';
-import Register from './Pages/Register';
 import Footer from './components/Footer';
-import CategoryFilterIndex from './components/Products/CollectionsFilter';
-import CollectionsFilter from './components/Products/CollectionsFilter';
+
+const Home = React.lazy(() => import('./Pages/Home'))
+const Collections = React.lazy(() => import('./components/Collections/Collections'))
+const ProductsIndex = React.lazy(() => import('./components/Products/ProductsIndex'))
+const ProductView = React.lazy(() => import('./components/Home/ProductView'))
+const Products = React.lazy(() => import('./Pages/Products'));
+const Login = React.lazy(() => import('./Pages/Login'));
+const Register = React.lazy(() => import('./Pages/Register'));
 
 function App() {
   return (
     <>
-      <div>
-        <Navbar />
+      <Navbar />
+      <Suspense fallback={<Loading />}>
         <Routes>
           <Route path="/" element={
             <ProtectedRoute>
@@ -33,8 +32,8 @@ function App() {
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
         </Routes>
-        <Footer />
-      </div>
+      </Suspense>
+      <Footer />
     </>
   );
 }
