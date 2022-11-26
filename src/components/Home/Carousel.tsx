@@ -1,42 +1,50 @@
-import React, { useRef, useState } from "react";
+import React from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
-import "../../App.css";
 
 // import required modules
 import { Pagination } from "swiper";
-
-export default function Carousel() {
+interface CarouselProps {
+    data?: any;
+}
+export default function Carousel({ data }: CarouselProps) {
+    // console.log(data);
     return (
         <>
             <Swiper
+                slidesPerView={4}
+                spaceBetween={30}
+                // centeredSlides={true}
                 pagination={{
-                    dynamicBullets: true,
+                    clickable: true,
                 }}
-                loop={true}
-                modules={[Pagination]}
+                width={1200}
+                height={1200}
                 className="mySwiper"
             >
-                <SwiperSlide>
-                    <img src={require("../../Assets/images/istockphoto-1175355990-612x612.jpg")} alt="" className="h-[70vh] " style={{ height: "70vh" }} />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src={require("../../Assets/images/istockphoto-1175355990-612x612.jpg")} alt="" className="h-[70vh]" style={{ height: "70vh" }} />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src={require("../../Assets/images/istockphoto-1175355990-612x612.jpg")} alt="" className="h-[70vh]" style={{ height: "70vh" }} />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src={require("../../Assets/images/istockphoto-1175355990-612x612.jpg")} alt="" className="h-[70vh]" style={{ height: "70vh" }} />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src={require("../../Assets/images/istockphoto-1175355990-612x612.jpg")} alt="" className="h-[70vh]" style={{ height: "70vh" }} />
-                </SwiperSlide>
+                {data?.map((element: any, index: number) => {
+                    console.log(element);
 
+                    return (
+                        <SwiperSlide>
+                            <div className="swiper-child w-[400px] bg-[#D9D9D9] m-3 " key={index + 1}>
+                                <img src={element?.src} alt="sfs" width={"400px"} height={"440px"} />
+                                <div className="flex justify-between p-2">
+                                    <h3>Classic </h3>
+                                    <p>4 star</p>
+                                </div>
+                                <div className="flex justify-between p-2">
+                                    <h2>$ 200</h2>
+                                    add
+                                </div>
+                            </div>
+                        </SwiperSlide>
+                    )
+                })}
             </Swiper>
         </>
     );
