@@ -6,14 +6,15 @@ import Sections from '../components/Sections';
 
 export default function Hero() {
   const mensTrends = [
-    { src: require("../Assets/images/cloths-men.jpg") },
-    { src: require("../Assets/images/cloths-men.jpg") },
-    { src: require("../Assets/images/cloths-men.jpg") },
-    { src: require("../Assets/images/cloths-men.jpg") },
-    { src: require("../Assets/images/cloths-men.jpg") },
-    { src: require("../Assets/images/cloths-men.jpg") },
-    { src: require("../Assets/images/cloths-men.jpg") },
-    { src: require("../Assets/images/cloths-men.jpg") },
+    { src: require("../Assets/images/rayban-women.jpg") },
+    { src: require("../Assets/images/rayban-women.jpg") },
+    { src: require("../Assets/images/rayban-women.jpg") },
+    { src: require("../Assets/images/rayban-women.jpg") },
+    { src: require("../Assets/images/rayban-women.jpg") },
+    { src: require("../Assets/images/rayban-women.jpg") },
+    { src: require("../Assets/images/rayban-women.jpg") },
+    { src: require("../Assets/images/rayban-women.jpg") },
+    { src: require("../Assets/images/rayban-women.jpg") },
   ]
   return (
     <>

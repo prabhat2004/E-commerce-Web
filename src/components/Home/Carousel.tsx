@@ -5,13 +5,12 @@ import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
-
-// import required modules
-import { Pagination } from "swiper";
+import { useNavigate } from 'react-router-dom';
 interface CarouselProps {
     data?: any;
 }
 export default function Carousel({ data }: CarouselProps) {
+    const navigate = useNavigate();
     // console.log(data);
     return (
         <>
@@ -27,11 +26,11 @@ export default function Carousel({ data }: CarouselProps) {
                 className="mySwiper"
             >
                 {data?.map((element: any, index: number) => {
-                    console.log(element);
-
                     return (
                         <SwiperSlide>
-                            <div className="swiper-child w-[400px] bg-[#D9D9D9] m-3 " key={index + 1}>
+                            <div className="swiper-child w-[400px] bg-[#D9D9D9] m-3 " key={index + 1} onClick={() => {
+                                navigate(`/view/${index}`)
+                            }}>
                                 <img src={element?.src} alt="sfs" width={"400px"} height={"440px"} />
                                 <div className="flex justify-between p-2">
                                     <h3>Classic </h3>

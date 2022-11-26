@@ -12,6 +12,8 @@ import ProductView from './components/Home/ProductView';
 import ProtectedRoute from './components/ProtectedRoute';
 import Register from './Pages/Register';
 import Footer from './components/Footer';
+import CategoryFilterIndex from './components/Products/CollectionsFilter';
+import CollectionsFilter from './components/Products/CollectionsFilter';
 
 function App() {
   return (
@@ -26,7 +28,6 @@ function App() {
           } />
           <Route path="shop" element={<Products />} />
           <Route path="products" element={<ProductsIndex />} />
-          <Route path="categories" element={<Categories />} />
           <Route path="collections" element={<Collections />} />
           <Route path={`view/:id`} element={<ProductView />} />
           <Route path="login" element={<Login />} />

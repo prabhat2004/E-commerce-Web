@@ -31,6 +31,89 @@ const subCategories = [
   { name: 'Hip Bags', href: '#' },
   { name: 'Laptop Sleeves', href: '#' },
 ]
+const products = [
+  {
+    id: 1,
+    name: 'Basic Tee',
+    href: '#',
+    imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
+    imageAlt: "Front of men's Basic Tee in black.",
+    price: '$35',
+    color: 'Black',
+  }, {
+    id: 1,
+    name: 'Basic Tee',
+    href: '#',
+    imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
+    imageAlt: "Front of men's Basic Tee in black.",
+    price: '$35',
+    color: 'Black',
+  }, {
+    id: 1,
+    name: 'Basic Tee',
+    href: '#',
+    imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
+    imageAlt: "Front of men's Basic Tee in black.",
+    price: '$35',
+    color: 'Black',
+  }, {
+    id: 1,
+    name: 'Basic Tee',
+    href: '#',
+    imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
+    imageAlt: "Front of men's Basic Tee in black.",
+    price: '$35',
+    color: 'Black',
+  }, {
+    id: 1,
+    name: 'Basic Tee',
+    href: '#',
+    imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
+    imageAlt: "Front of men's Basic Tee in black.",
+    price: '$35',
+    color: 'Black',
+  }, {
+    id: 1,
+    name: 'Basic Tee',
+    href: '#',
+    imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
+    imageAlt: "Front of men's Basic Tee in black.",
+    price: '$35',
+    color: 'Black',
+  }, {
+    id: 1,
+    name: 'Basic Tee',
+    href: '#',
+    imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
+    imageAlt: "Front of men's Basic Tee in black.",
+    price: '$35',
+    color: 'Black',
+  }, {
+    id: 1,
+    name: 'Basic Tee',
+    href: '#',
+    imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
+    imageAlt: "Front of men's Basic Tee in black.",
+    price: '$35',
+    color: 'Black',
+  }, {
+    id: 1,
+    name: 'Basic Tee',
+    href: '#',
+    imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
+    imageAlt: "Front of men's Basic Tee in black.",
+    price: '$35',
+    color: 'Black',
+  }, {
+    id: 1,
+    name: 'Basic Tee',
+    href: '#',
+    imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
+    imageAlt: "Front of men's Basic Tee in black.",
+    price: '$35',
+    color: 'Black',
+  },
+]
 const filters = [
   {
     id: 'color',
@@ -69,11 +152,11 @@ const filters = [
   },
 ]
 
-function classNames(...classes:any) {
+function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function CategoryFilterIndex() {
+export default function CollectionsFilter() {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
 
   return (
@@ -247,7 +330,7 @@ export default function CategoryFilterIndex() {
               Products
             </h2>
 
-            <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
+            <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4 h-[700px]">
               {/* Filters */}
               <form className="hidden lg:block">
                 <h3 className="sr-only">Categories</h3>
@@ -304,11 +387,41 @@ export default function CategoryFilterIndex() {
               </form>
 
               {/* Product grid */}
-              <div className="lg:col-span-3">
-                {/* Replace with your content */}
-                <div className="h-96 rounded-lg border-4 border-dashed border-gray-200 lg:h-full" />
-                {/* /End replace */}
+              {/* Replace with your content */}
+              <div className="grid col-span-3 grid-cols-3 gap-3 overflow-y-scroll">
+                {products.map((product) => (
+                  <div key={product.id} className="group relative">
+                    {/* <button className=" absolute top-[60%] bg-slate-800 w-full text-center text-slate-200 p-2" onClick={() => {
+                                    console.log("CLICKED");
+                                }}>Quick View </button> */}
+                    <div className="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80 " >
+
+                      <img
+                        src={product.imageSrc}
+                        alt={product.imageAlt}
+                        className="h-full w-full object-cover object-center lg:h-full lg:w-full"
+                      />
+                    </div>
+
+                    <div className="mt-4 flex justify-between">
+                      <div>
+                        <h3 className="text-sm text-gray-700">
+                          <p onClick={() => {
+                            // navigate(`/view/${product?.id}`)
+                          }}>
+                            <span aria-hidden="true" className="absolute inset-0" />
+                            {product.name}
+                          </p>
+                        </h3>
+                        <p className="mt-1 text-sm text-gray-500">{product.color}</p>
+                      </div>
+                      <p className="text-sm font-medium text-gray-900">{product.price}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
+              {/* /End replace */}
+
             </div>
           </section>
         </main>
