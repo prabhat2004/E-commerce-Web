@@ -11,12 +11,12 @@ interface CarouselProps {
 }
 export default function Carousel({ data }: CarouselProps) {
     const navigate = useNavigate();
-    // console.log(data);
     return (
         <>
             <Swiper
                 slidesPerView={4}
                 spaceBetween={30}
+                // grabCursor={true}
                 // centeredSlides={true}
                 pagination={{
                     clickable: true,
